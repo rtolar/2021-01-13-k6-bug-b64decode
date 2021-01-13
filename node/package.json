@@ -1,18 +1,9 @@
 {
-  "name": "mynode",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "yargs-parser": "^13.1.2"
-  },
   "devDependencies": {
-    "mocha": "^8.2.1"
+    "crypto-js": "4.0.0",
+    "mocha": "8.2.1"
   },
   "scripts": {
     "test": "mocha"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
