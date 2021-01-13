@@ -1,7 +1,17 @@
 import encoding from "k6/encoding";
-import crypto from "k6/crypto";
 
-// Test simple decode/encode sequence
+// Test simple encode sequence
+// This works
+function encodeHello() {
+    console.log("------encodeHello()--------------");
+    const data = 'hello'; 
+    let enc = encoding.b64encode(data);
+    console.log("after   = " + enc);
+    const expected = 'aGVsbG8='; 
+    console.log("encodeHello " + (enc == expected ? "PASSED" : "FAILED"));   // PASS
+}
+
+// Test simple decode/encode roundtrip 
 // This works
 function decodeEncodeWorks() {
     console.log("------decodeEncodeWorks()--------------");
@@ -12,6 +22,7 @@ function decodeEncodeWorks() {
     console.log("encode/decode " + (enc == b64data ? "PASSED" : "FAILED"));   // PASS
 }
 
+// Test a decode/encode roundtrip, but with a binary original value
 // this fails. 
 function decodeEncodeFails() {
     console.log("------decodeEncodeFails()--------------");
@@ -23,6 +34,7 @@ function decodeEncodeFails() {
 }
 
 export default function() {
+    encodeHello();
     decodeEncodeWorks();
     decodeEncodeFails();
 }
